@@ -1,0 +1,236 @@
+{
+  "brand": {
+    "logoAlt": "Enwiya Software Solutions logo",
+    "name": "Enwiya",
+    "tagline": "Software Solutions",
+    "href": "/"
+  },
+  "blog": {
+    "heading": "Insights & Updates",
+    "description": "Engineering deep-dives, product thinking, and company news — straight from the Enwiya team.",
+    "categories": ["All", "Engineering", "Product", "AI & Automation", "Company"],
+    "posts": [
+      {
+        "slug": "building-scalable-apis-nodejs-typescript",
+        "title": "Building Scalable APIs with Node.js and TypeScript",
+        "excerpt": "How we structure our Express + TypeScript API projects for long-term maintainability — from folder layout to error handling and OpenAPI docs.",
+        "category": "Engineering",
+        "author": "Enwiya Engineering",
+        "date": "Jul 10, 2026",
+        "readTime": "7 min read",
+        "featured": true,
+        "content": [
+          { "type": "paragraph", "text": "Scaling a Node.js API from a handful of endpoints to hundreds requires deliberate architectural choices from day one. TypeScript makes this tractable — but only when paired with the right project structure and runtime validation." },
+          { "type": "heading", "text": "Feature-First Folder Layout" },
+          { "type": "paragraph", "text": "We organise every API using a feature-first structure. Each feature (users, orders, payments) gets its own directory containing its router, controller, service, and Zod schema. Related code stays co-located, onboarding is fast, and there is no cross-feature coupling." },
+          { "type": "code", "language": "bash", "text": "src/\n  features/\n    users/\n      users.router.ts\n      users.controller.ts\n      users.service.ts\n      users.schema.ts\n  middleware/\n  lib/\n  app.ts" },
+          { "type": "heading", "text": "Type-Safe Request Validation with Zod" },
+          { "type": "paragraph", "text": "Every request body and query parameter is parsed through a Zod schema at the controller boundary before any business logic runs. This eliminates an entire class of runtime errors and gives accurate TypeScript types throughout the request lifecycle — no more casting unknown to anything." },
+          { "type": "heading", "text": "Centralised Error Handling" },
+          { "type": "paragraph", "text": "A single Express error middleware handles every thrown error. We define a lightweight AppError class that carries an HTTP status code. Controllers simply throw — they never construct raw HTTP responses. Consistent error shapes across every endpoint come for free." },
+          { "type": "heading", "text": "Auto-Generated OpenAPI Docs" },
+          { "type": "paragraph", "text": "We use zod-to-openapi to generate an OpenAPI 3.1 spec directly from our Zod schemas. The spec is served at /docs as a live Swagger UI — always in sync with the code, never written by hand." },
+          { "type": "highlight", "text": "Every API we ship is self-documented, fully type-safe, and structured so any engineer on the team can navigate it within minutes of cloning the repo." }
+        ]
+      },
+      {
+        "slug": "why-nextjs-for-client-projects",
+        "title": "Why We Choose Next.js for Every Client Web Project",
+        "excerpt": "Server components, the App Router, and edge deployment have changed how we build. Here's our full reasoning.",
+        "category": "Engineering",
+        "author": "Enwiya Engineering",
+        "date": "Jul 5, 2026",
+        "readTime": "5 min read",
+        "featured": false,
+        "content": [
+          { "type": "paragraph", "text": "When a client asks us what framework to use for their web project, the answer is almost always Next.js. That recommendation has only gotten stronger since the App Router and React Server Components landed." },
+          { "type": "heading", "text": "Server Components Change the Default" },
+          { "type": "paragraph", "text": "With React Server Components, data fetching happens on the server by default. Pages arrive pre-rendered with their data, load instantly, and send zero JavaScript for components that don't need interactivity. The performance baseline is dramatically better without any extra work." },
+          { "type": "heading", "text": "The App Router Gives Us Real Layouts" },
+          { "type": "paragraph", "text": "Nested layouts, loading states, error boundaries, and streaming are all first-class in the App Router. We can build complex dashboard UIs with shared navigation that doesn't re-mount on every navigation — something that was painful to achieve before." },
+          { "type": "list", "items": ["Automatic code-splitting per route", "Built-in image optimisation with next/image", "Edge runtime for sub-50ms API responses globally", "First-class TypeScript support", "Seamless Vercel or self-hosted deployment"] },
+          { "type": "highlight", "text": "Next.js lets us deliver production-grade performance without forcing clients into a complex infrastructure setup. That's the trade-off we want to make every time." }
+        ]
+      },
+      {
+        "slug": "ai-transforming-business-operations",
+        "title": "How AI is Transforming Business Operations in 2026",
+        "excerpt": "From document processing to predictive analytics, we break down the practical AI use-cases we're deploying for clients right now.",
+        "category": "AI & Automation",
+        "author": "Enwiya Team",
+        "date": "Jun 28, 2026",
+        "readTime": "6 min read",
+        "featured": false,
+        "content": [
+          { "type": "paragraph", "text": "The AI hype cycle is behind us. What remains are real, deployable tools that can meaningfully reduce manual work, speed up decisions, and surface insights that were previously buried in data. Here is what we are actually building for clients in 2026." },
+          { "type": "heading", "text": "Intelligent Document Processing" },
+          { "type": "paragraph", "text": "Contracts, invoices, intake forms — most businesses are still processing these by hand. We build pipelines that extract structured data from unstructured documents using LLMs combined with post-processing validation. A client recently cut their invoice processing time from 4 hours to 12 minutes per day." },
+          { "type": "heading", "text": "Predictive Analytics Dashboards" },
+          { "type": "paragraph", "text": "Rather than dashboards that show what happened, we build dashboards that show what is likely to happen. Churn prediction, demand forecasting, and lead scoring models are now accessible to businesses without a data science team — the heavy lifting is done in the infrastructure we build." },
+          { "type": "heading", "text": "Workflow Automation with AI Triggers" },
+          { "type": "paragraph", "text": "AI shines when it handles the decision layer of a workflow — routing support tickets to the right team, flagging anomalous transactions, or summarising long email threads before they reach a human. We wire these capabilities into existing tools via API." },
+          { "type": "highlight", "text": "The most valuable AI implementations are narrow, reliable, and solve one painful problem extremely well. We help clients find those opportunities and build them carefully." }
+        ]
+      },
+      {
+        "slug": "mvp-to-production-development-process",
+        "title": "From MVP to Production: Our Development Process",
+        "excerpt": "A transparent look at how we take a product from a napkin sketch to a live, monitored, scalable production system.",
+        "category": "Product",
+        "author": "Enwiya Product",
+        "date": "Jun 20, 2026",
+        "readTime": "8 min read",
+        "featured": false,
+        "content": [
+          { "type": "paragraph", "text": "Most software projects fail not because of bad code but because of unclear requirements, scope creep, and a disconnect between what gets built and what users actually need. Our process is designed to prevent all three." },
+          { "type": "heading", "text": "Phase 1: Discovery (Week 1–2)" },
+          { "type": "paragraph", "text": "Before a line of code is written, we run structured discovery sessions with key stakeholders. We map user journeys, define success metrics, and produce a written scope document that both sides sign off on. Ambiguity at this stage is expensive later." },
+          { "type": "heading", "text": "Phase 2: Design & Architecture (Week 2–3)" },
+          { "type": "paragraph", "text": "We produce high-fidelity Figma prototypes and a system design document covering the data model, API contracts, and infrastructure choices. This acts as the single source of truth for engineers and surfaces design conflicts early." },
+          { "type": "heading", "text": "Phase 3: Iterative Build (Week 3–N)" },
+          { "type": "paragraph", "text": "We work in two-week sprints with a demo at the end of each. Clients see working software every two weeks — not just status updates. Every sprint has a clearly defined goal and acceptance criteria agreed in advance." },
+          { "type": "heading", "text": "Phase 4: Launch & Handover" },
+          { "type": "paragraph", "text": "We deploy to production with monitoring, alerting, and runbooks in place. Handover includes a recorded walkthrough, CI/CD documentation, and a 30-day support window." },
+          { "type": "highlight", "text": "Transparency is not optional at Enwiya. You see the code, the deploy logs, the metrics, and the plan — at every stage of the project." }
+        ]
+      },
+      {
+        "slug": "cloud-cost-optimisation-lessons",
+        "title": "Cloud Cost Optimisation: Lessons from the Field",
+        "excerpt": "Five techniques we used to cut a client's AWS bill by 40% without sacrificing performance or reliability.",
+        "category": "Engineering",
+        "author": "Enwiya Engineering",
+        "date": "Jun 12, 2026",
+        "readTime": "5 min read",
+        "featured": false,
+        "content": [
+          { "type": "paragraph", "text": "A client came to us with a $22,000/month AWS bill and a suspicion they were over-provisioned. After a two-week audit and a phased migration, we brought that to $13,000/month — a 41% reduction — with zero downtime and no performance regressions." },
+          { "type": "heading", "text": "What We Found" },
+          { "type": "list", "items": ["RDS instances sized for peak Black Friday load running 24/7 at 8% CPU average", "Lambda functions with 3 GB memory allocations that needed 200 MB", "S3 buckets with no lifecycle policies accumulating years of stale logs", "NAT Gateway charges from services that could use VPC endpoints", "On-demand EC2 for stable, predictable batch workloads"] },
+          { "type": "heading", "text": "The Five Fixes" },
+          { "type": "list", "items": ["Right-sized RDS to the appropriate instance class with read replicas for reporting queries", "Profiled and reduced Lambda memory across 60 functions using AWS Lambda Power Tuning", "Added S3 Intelligent-Tiering and lifecycle rules to archive logs after 30 days", "Replaced NAT Gateway traffic with VPC endpoints for S3 and DynamoDB", "Moved batch jobs to Spot Instances with an on-demand fallback"] },
+          { "type": "highlight", "text": "Cloud cost is an engineering problem. The tools to fix it exist — the gap is usually just time and attention. An audit pays for itself in weeks." }
+        ]
+      },
+      {
+        "slug": "introducing-retailcore",
+        "title": "Case Study: Launching RetailCore in 8 Weeks",
+        "excerpt": "How we designed, built, and shipped a full-stack e-commerce platform for a retail client in under two months.",
+        "category": "Company",
+        "author": "Enwiya Team",
+        "date": "Jun 1, 2026",
+        "readTime": "4 min read",
+        "featured": false,
+        "content": [
+          { "type": "paragraph", "text": "RetailCore is a full-stack e-commerce platform we built for a regional retail chain that had outgrown their legacy system. The brief: replace an ageing Magento install with a modern, fast, maintainable platform — in eight weeks, before their peak season." },
+          { "type": "heading", "text": "The Stack" },
+          { "type": "list", "items": ["Next.js 15 App Router for the storefront and admin dashboard", "Node.js + TypeScript API with PostgreSQL via Prisma", "Stripe for payments and subscription billing", "Cloudflare for CDN and DDoS protection", "GitHub Actions for CI/CD with staging and production environments"] },
+          { "type": "heading", "text": "Week-by-Week Timeline" },
+          { "type": "paragraph", "text": "Weeks 1–2 were discovery and design. Weeks 3–5 were core build: product catalogue, cart, checkout, and order management. Weeks 6–7 were admin dashboard, reporting, and data migration from the legacy system. Week 8 was QA, load testing, and go-live." },
+          { "type": "heading", "text": "Results at Launch" },
+          { "type": "list", "items": ["Page load time reduced from 4.8s to 0.9s (LCP)", "Mobile conversion rate up 23% in the first month", "Zero critical incidents in the first 60 days of operation", "Admin team onboarded in a single half-day training session"] },
+          { "type": "highlight", "text": "Eight weeks is tight. It works when requirements are locked early, decisions are made fast, and the team has done it before. That's what we bring." }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "tag": "Who We Are",
+    "heading": "Built by Engineers. Driven by Purpose.",
+    "description": "Enwiya Software Solutions is a full-service software company founded on a simple belief: great technology should solve real problems. We partner with businesses of every size to design, build, and scale the software they need to succeed.",
+    "mission": "To empower businesses with reliable, modern software that drives growth, efficiency, and impact — delivered with transparency and craftsmanship.",
+    "vision": "A world where every business, regardless of size, has access to enterprise-grade software solutions tailored to their unique needs.",
+    "stats": [
+      { "value": "50+", "label": "Projects Delivered" },
+      { "value": "30+", "label": "Happy Clients" },
+      { "value": "5+",  "label": "Years of Experience" },
+      { "value": "4",   "label": "Core Services" }
+    ],
+    "values": [
+      {
+        "icon": "shield",
+        "title": "Integrity First",
+        "description": "We are honest about timelines, costs, and trade-offs. You'll never be surprised."
+      },
+      {
+        "icon": "zap",
+        "title": "Speed & Quality",
+        "description": "We move fast without cutting corners — rigorous code review, testing, and CI/CD keep quality high."
+      },
+      {
+        "icon": "users",
+        "title": "True Partnership",
+        "description": "We embed ourselves in your goals. Your success is our success, from kick-off to launch and beyond."
+      },
+      {
+        "icon": "lightbulb",
+        "title": "Continuous Innovation",
+        "description": "We stay current with emerging technology so you can always benefit from the best tools available."
+      }
+    ]
+  },
+  "nav": {
+    "company": [
+      {
+        "title": "About Us",
+        "href": "/about",
+        "description": "Our story, mission, and the team behind Enwiya."
+      }
+    ],
+    "links": [
+      { "label": "Portfolio", "href": "/portfolio" },
+      { "label": "Blog", "href": "/blog" }
+    ],
+    "cta": {
+      "label": "Get in Touch",
+      "href": "/contactPage"
+    }
+  },
+  "footer": {
+    "description": "Building powerful software solutions that accelerate your business. From web apps to AI automation — we deliver.",
+    "columns": [
+      {
+        "heading": "Services",
+        "links": [
+          { "label": "Web Development", "href": "/services/web-development" },
+          { "label": "Mobile Applications", "href": "/services/mobile" },
+          { "label": "Cloud & DevOps", "href": "/services/cloud" },
+          { "label": "AI & Automation", "href": "/services/ai" }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          { "label": "About Us", "href": "/about" },
+          { "label": "Portfolio", "href": "/portfolio" },
+          { "label": "Blog", "href": "/blog" }
+        ]
+      }
+    ],
+    "socials": [
+      { "label": "GitHub", "href": "https://github.com/enwiyasoft", "icon": "github" },
+      { "label": "LinkedIn", "href": "https://linkedin.com/company/enwiyasoft", "icon": "linkedin" },
+      { "label": "Twitter", "href": "https://twitter.com/enwiyasoft", "icon": "twitter" }
+    ],
+    "legal": {
+      "copyright": "Enwiya Software Solutions, LLC",
+      "links": [
+        { "label": "Privacy Policy", "href": "/privacy" },
+        { "label": "Terms of Service", "href": "/terms" }
+      ]
+    }
+  },
+  "portfolio": {
+    "heading": "Projects We've Built",
+    "subheading": "From startups to enterprise — we build software that performs. Here's a selection of work we're proud of.",
+    "projects": [
+      {
+        "title": "Enwiya Law",
+        "category": "Web Development",
+        "description": "Enwiya Law Firm is a full-service legal practice dedicated to delivering strategic, client-first representation across a broad range of practice areas. From corporate transactions and estate planning to immigration and civil litigation, our attorneys bring deep expertise, careful judgment, and unwavering commitment to every case. We believe that access to quality legal counsel should be straightforward — so we take the time to understand your situation, explain your options clearly, and fight for the outcome you deserve.",
+        "tags": ["Next.js", "Node.js","TypeScript", "Tailwind", "Appwrite", "SQL"],
+        "href": "https://www.enwiyalaw.com/"
+      }
+    ]
+  }
+}

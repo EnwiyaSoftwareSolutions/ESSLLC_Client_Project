@@ -1,0 +1,202 @@
+
+.mainAboutWrapper{
+  display: flex;
+  flex-direction: column;
+}/* Hero section */
+.mainAboutContainer {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  width: 100%;
+  /* min-height: calc(100vh - 64px); */
+  /* padding: 4rem 0 4rem 0; */
+  /* gap: 2rem; */
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Left text column */
+.leftSideTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: sticky;;
+  left:50px;
+  margin-top: 2rem;
+  /* gap: 1.5rem; */
+  flex: 0 0 45%;
+  max-width: 560px;
+  padding: 2rem;
+}
+
+.heddingMessage {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin: 0;
+}
+.icon {
+  color: #2563eb;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.focuseArea {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.heddingCompanyName {
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  width: 50vw;
+  color: #ffffff;
+  margin: 0;
+}
+
+.heddingDescription {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-size: 1.5rem;
+  width: 30vw;
+  color: rgba(255, 255, 255, 0.68);
+  /* max-width: 440px; */
+  margin: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.servicesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3rem 2rem;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex: 1;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.serviceCard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.serviceCard p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0.35rem 0 0 0;
+}
+
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.contactButton:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-2px);
+}
+
+.contactButton2 {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.contactButton2:hover {
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  transform: translateY(-2px);
+}
+
+/* Right image column */
+.rightSideTextContainer {
+  flex: 0 0 55%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  background: transparent;
+}
+
+/* Slide-in animation wrapper */
+.card {
+  width: 1100px;
+  position: relative;
+  right:100px;
+  overflow: visible;
+  background: transparent;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+  transform: translateX(80px);
+  opacity: 0;
+}
+
+.show .card {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainAboutContainer {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+  .leftSideTextContainer {
+    flex: unset;
+    max-width: 100%;
+    padding: 0;
+  }
+  .rightSideTextContainer {
+    flex: unset;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
