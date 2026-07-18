@@ -1,8 +1,7 @@
-
-.mainAboutWrapper{
+.mainAboutWrapper {
   display: flex;
   flex-direction: column;
-}/* Hero section */
+} /* Hero section */
 .mainAboutContainer {
   display: flex;
   flex-direction: row;
@@ -21,8 +20,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  position: sticky;;
-  left:50px;
+  position: sticky;
+  left: 50px;
   margin-top: 2rem;
   /* gap: 1.5rem; */
   flex: 0 0 45%;
@@ -102,7 +101,7 @@
 }
 
 .serviceCard:not(:last-child)::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   top: 0;
@@ -128,7 +127,9 @@
   font-size: 1rem !important;
   font-weight: 600 !important;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.15s ease !important;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease !important;
 }
 
 .contactButton:hover {
@@ -144,7 +145,10 @@
   font-size: 1rem !important;
   font-weight: 600 !important;
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease !important;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.15s ease !important;
 }
 
 .contactButton2:hover {
@@ -167,10 +171,12 @@
 .card {
   width: 1100px;
   position: relative;
-  right:100px;
+  right: 100px;
   overflow: visible;
   background: transparent;
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
   transform: translateX(80px);
   opacity: 0;
 }
@@ -181,7 +187,80 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* ── Responsive ─────────────────────────────────── */
+
+/* Tablet: stack hero, shrink services to 2-col */
+@media (max-width: 1024px) {
+  .mainAboutContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+    padding: 3rem 1.5rem;
+    overflow: visible;
+  }
+  .leftSideTextContainer {
+    position: static;
+    flex: unset;
+    max-width: 100%;
+    padding: 0;
+    gap: 1.25rem;
+  }
+  .rightSideTextContainer {
+    flex: unset;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+    align-self: center;
+    overflow: hidden;
+  }
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .serviceCard {
+    flex: unset;
+    padding: 0;
+  }
+  .serviceCard:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* Mobile: single column, larger tap targets */
+@media (max-width: 640px) {
+  .mainAboutContainer {
+    padding: 2rem 1rem;
+  }
+  .heddingCompanyName {
+    font-size: clamp(2rem, 9vw, 3rem);
+    width: 100%;
+  }
+  .heddingDescription {
+    font-size: 1rem;
+    width: 100%;
+  }
+  .buttonContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+  .contactButton,
+  .contactButton2 {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .servicesContainer {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  .card {
+    display: none;
+  }
+}
+
+/* @media (max-width: 768px) {
   .mainAboutContainer {
     flex-direction: column;
     padding: 3rem 1.5rem;
@@ -197,6 +276,4 @@
     width: 100%;
     justify-content: center;
   }
-}
-
-
+} */
